@@ -1,18 +1,19 @@
 class Solution {
     public int[] plusOne(int[] digits) {
-
-        for(int i = digits.length - 1; i >= 0; i--){
-            if(digits[i] < 9){
-                digits[i]++;
+        int l = digits.length;
+        
+        for (int i = l - 1; i >= 0; i--) {
+            if (digits[i] != 9) {
+               digits[i]++;
                 return digits;
             }
             digits[i] = 0;
         }
-
-        // agar sab 9 the
-        int[] newArr = new int[digits.length + 1];
-        newArr[0] = 1;
-
-        return newArr;
+         
+        int[] newD = new int[l+1];
+        newD[0] = 1;
+        
+        return newD;
+        
     }
 }
