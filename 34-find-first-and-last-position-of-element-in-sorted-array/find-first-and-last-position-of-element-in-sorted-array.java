@@ -1,8 +1,8 @@
 class Solution {
     public int[] searchRange(int[] nums, int target) {
         int []ans = {-1,-1};
-        int start = search(nums, target, true);
-        int end = search(nums, target, false);
+        int start = search(nums, target, true); // first occuerence dundh ke do ... 
+        int end = search(nums, target, false); // last occurence dundh ke do ...
         ans[0] = start;
         ans[1] = end;
         return ans ;
@@ -10,7 +10,7 @@ class Solution {
     // this function just return the index value of a target ..
 
      int search (int[]nums, int target ,boolean findstartindex){
-        int ans = -1 ;
+        int ans = -1 ;   // agar target nahi mila tho ..
         int start =0 ;
         int end = nums.length -1; 
         while (start<=end){
