@@ -1,32 +1,20 @@
 class Solution {
     public int missingNumber(int[] nums) {
 
-        int i = 0;
+        int n = nums.length;
 
-        while (i < nums.length) {
+        boolean[] visited = new boolean[n + 1];
 
-            int correct = nums[i];
-
-            if (nums[i] < nums.length && nums[i] != nums[correct]) {
-                swap(nums, i, correct);
-            } 
-            else {
-                i++;
-            }
+        for(int i = 0; i < nums.length; i++) {
+            visited[nums[i]] = true;
         }
 
-        for (i = 0; i < nums.length; i++) {
-            if (nums[i] != i) {
+        for(int i = 0; i < visited.length; i++) {
+            if(!visited[i]) {
                 return i;
             }
         }
 
-        return nums.length;
-    }
-
-    static void swap(int[] nums, int first, int second) {
-        int temp = nums[first];
-        nums[first] = nums[second];
-        nums[second] = temp;
+        return -1;
     }
 }
