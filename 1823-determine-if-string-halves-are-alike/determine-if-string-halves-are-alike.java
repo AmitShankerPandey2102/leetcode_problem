@@ -22,11 +22,7 @@ class Solution {
             }
         }
 
-        if (count1 == count2) {
-            return true;
-        } else {
-            return false;
-        }
+        return count1 == count2;
     }
 
     static boolean isVowel(char ch) {
