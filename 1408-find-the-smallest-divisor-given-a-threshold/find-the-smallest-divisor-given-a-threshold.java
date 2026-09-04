@@ -12,7 +12,8 @@ class Solution {
             if(divide(nums,mid)<=thd){
                 ans=mid;
                 high=mid-1;
-            }else{
+            }
+            else{
                 low=mid+1;
             }
         }
