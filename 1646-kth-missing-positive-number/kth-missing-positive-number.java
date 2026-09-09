@@ -1,14 +1,21 @@
 class Solution {
     public int findKthPositive(int[] arr, int k) {
-        boolean[] freq=new boolean[2001];
-        for(int num:arr){
-            freq[num]=true;
+        int n = arr.length;
+
+        int low = 0;
+        int high = n-1;
+
+        while(low <= high) {
+            int mid = (low + high) / 2;
+
+            int diff = arr[mid] - (mid + 1);
+
+            if(diff < k) 
+                low = mid + 1;
+            else 
+                high = mid - 1;
         }
-        for(int i=1;i<2001;i++){
-            if(!freq[i] && k==1){
-                return i;
-            }else if(!freq[i]) k--;
-        }
-        return -1;
+
+        return low + k;
     }
 }
