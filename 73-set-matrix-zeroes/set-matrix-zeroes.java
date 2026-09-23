@@ -1,33 +1,26 @@
 class Solution {
     public void setZeroes(int[][] matrix) {
+        int m = matrix.length;
+        int n = matrix[0].length;
 
-        int rows = matrix.length;
-        int cols = matrix[0].length;
+        boolean[] row = new boolean[m];
+        boolean[] col = new boolean[n];
 
-        //  copy of original array because we dont want to create new row and column to zero which is creating by original zero given in question 
-        int[][] original = new int[rows][cols];
-
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                original[i][j] = matrix[i][j];
+        // Find all original zeroes
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (matrix[i][j] == 0) {
+                    row[i] = true;
+                    col[j] = true;
+                }
             }
         }
 
-        // Check original matrix
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-
-                if (original[i][j] == 0) {
-
-                    // Make entire row zero
-                    for (int k = 0; k < cols; k++) {
-                        matrix[i][k] = 0;
-                    }
-
-                    // Make entire column zero
-                    for (int k = 0; k < rows; k++) {
-                        matrix[k][j] = 0;
-                    }
+        // Set cells to zero
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (row[i] || col[j]) {
+                    matrix[i][j] = 0;
                 }
             }
         }
