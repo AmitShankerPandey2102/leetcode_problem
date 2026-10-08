@@ -12,10 +12,13 @@ class Solution {
             }
 
             // Maximum profit
-            int profit = prices[i] - min; //Aur har current day ko selling day maan lete hain:
 
-            if (profit > maxProfit) {
-                maxProfit = profit;
+            else{
+                 int profit = prices[i] - min; //Aur har current day ko selling day maan lete hain:
+
+                 if (profit > maxProfit) {
+                 maxProfit = profit;
+                }
             }
         }
 
