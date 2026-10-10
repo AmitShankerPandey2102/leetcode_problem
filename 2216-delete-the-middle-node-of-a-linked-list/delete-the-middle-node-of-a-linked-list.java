@@ -8,17 +8,18 @@ class Solution {
 
         ListNode slow = head;
         ListNode fast = head;
+        ListNode prev = null; // it help me to store previous value 
 
-        // Stop slow just before the middle
-        while (fast.next.next != null &&
-               fast.next.next.next != null) {
+        while (fast != null && fast.next != null) {  // dont exchange this to because it will give null pointer exception . 
+            prev = slow;
             slow = slow.next;
             fast = fast.next.next;
         }
 
         // Delete the middle node
-        slow.next = slow.next.next;
+        prev.next = slow.next;
 
         return head;
     }
 }
+
